@@ -38,10 +38,18 @@
                 $scope.salary = 1000;
             },
             template: `
+            <input placeholder="Name" ng-model="name" type="text">
+            <input placeholder="Age" ng-model="age" type="text">
+            <input placeholder="Salary" ng-model="salary" type="text">
+            <br>
+            <br>
+            <span>Name: </span>
             <span style="color:red" ng-bind="name"></span>
             <br>
+            <span>Age: </span>
             <span style="color:green" ng-bind="age"></span>
-            <br>            
+            <br>
+            <span>Salary: </span>          
             <span style="color:blue" ng-bind="salary"></span>
             `,
             // template: `
