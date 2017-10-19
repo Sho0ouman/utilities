@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Router</title>
+    <script src="router.js"></script>
+</head>
+
+<body>
+    <button id="state1" type="button">State 1</button>
+    <button id="state2" type="button">State 2</button>
+    <button id="reload" type="button">Reload</button>
+    <br>
+    <br>
+    <router-master></router-master>
+    <script>
+        Router.register({
+            name: "state1",
+            url: "state1",
+            controller: function ($scope) {
+                $scope.name = "Mostafa";
+            },
+            template: `
+            <input id="input" ng-model="name" type="text">
+            <span ng-bind="name"></span>
+            `,
+            // template: `
+            // <input type="text">
+            // <span>{{name}}</span>
+            // `,
+        });
+        Router.register({
+            name: "state2",
+            url: "state2",
+            controller: function ($scope) {
+                $scope.name = "Ali";
+                $scope.age = 25;
+                $scope.salary = 1000;
+            },
+            template: `
+            <span style="color:red" ng-bind="name"></span>
+            <br>
+            <span style="color:green" ng-bind="age"></span>
+            <br>            
+            <span style="color:blue" ng-bind="salary"></span>
+            `,
+            // template: `
+            // <span style="color:red">{{name}}</span>
+            // <br>
+            // <span style="color:green">{{age}}</span>
+            // <br>            
+            // <span style="color:blue">{{salary}}</span>
+            // `,
+        });
+
+        document.getElementById("state1").onclick = function () {
+            Router.go('state1');
+        };
+
+        document.getElementById("state2").onclick = function () {
+            Router.go('state2');
+        };
+
+        document.getElementById("reload").onclick = function () {
+            Router.reload();
+        };
+    </script>
+</body>
+
+</html>
