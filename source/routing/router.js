@@ -37,6 +37,7 @@ var Router = (function () {
     }
 
     function rend(str, scope) {
+        debugger;
         var bindingBoard = {};
         var elements = new DOMParser().parseFromString(str, "text/html").firstChild.childNodes[1].children;
         var i = 0;
@@ -83,7 +84,9 @@ var Router = (function () {
                 if (bindingBoard[k].input)
                     for (var i = 0; i < bindingBoard[k].input.length; i++) {
                         var input = bindingBoard[k].input[i];
-                        input.addEventListener('input', function () {
+                        input.addEventListener('input', function (eventArg) {
+                            input = eventArg.currentTarget;
+                            k = input.getAttribute('ng-model');
                             scope[k] = input.value;
                             for (var j = 0; j < bindingBoard[k].display.length; j++)
                                 bindingBoard[k].display[j].innerText = scope[k];
