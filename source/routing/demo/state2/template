@@ -1,0 +1,15 @@
+<input placeholder="Name" ng-model="model.name" type="text" style="margin:5px">
+<input placeholder="Age" ng-model="age" type="text" style="margin:5px">
+<input placeholder="Salary" ng-model="salary" type="text" style="margin:5px">
+<br>
+<br>
+<div style="margin:35px">
+    <span>Name: </span>
+    <span style="color:#770202" ng-bind="model.name"></span>
+    <br>
+    <span>Age: </span>
+    <span style="color:green" ng-bind="model.age"></span>
+    <br>
+    <span>Salary: </span>
+    <span style="color:blue" ng-bind="salary"></span>
+</div>
