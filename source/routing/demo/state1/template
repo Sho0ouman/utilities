@@ -1,0 +1,2 @@
+<input id="input" ng-model="name" type="text">
+<span ng-bind="name"></span>
